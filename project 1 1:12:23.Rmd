@@ -1,0 +1,39 @@
+---
+title: "Project 1"
+author: "Jackson Prosser"
+date: "2024-01-11"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## ECON104 Project
+
+Loading Packages and Data File
+
+```{r}
+library(jtools)
+library(ggplot2)
+library(stargazer)
+
+spot <- read.csv("/Users/jpro/Desktop/spotify-2023.csv")
+```
+
+```{r}
+head(spot)
+str(spot)
+```
+
+Response Variable - Total Streams (streams)
+
+```{r}
+options(scipen = 999)
+spot$streams <- as.integer(spot$streams)
+summary(spot$streams)
+```
+```{r}
+hist(spot$streams)
+plot(spot$in_apple_charts , spot$streams)
+```
